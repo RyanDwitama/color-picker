@@ -39,8 +39,8 @@ const App = () => {
         <div className="w-30 h-30 border-1" style={{ backgroundColor: color }} />
         <input type="text" placeholder="Type new color..." className="border-1 mt-5 p-2" value={color} onChange={e => changeColor(e.target.value)} id="square" />
 
-        <div className="relative top-10 float-left">
-          Color: {color}
+        <div className="relative top-10 float-left h-10 font-bold text-5xl">
+          {color}
         </div>
 
         <div className="text-center mt-15">
