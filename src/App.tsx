@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const App = () => {
   const [prevColor, setPrevColor] = useState(new Array(3).fill(""));
   const [color, setColor] = useState("");
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(-1);
   const [myColor, setMyColor] = useState("");
   
   const changeColor = (e: string): void => {
@@ -37,10 +37,17 @@ const App = () => {
         <div className="w-30 h-30 border-1 mb-10" style={{ backgroundColor: myColor }} />
         <p>Current Color</p>
         <div className="w-30 h-30 border-1" style={{ backgroundColor: color }} />
-        <input type="text" placeholder="Type new color..." className="border-1 mt-5" value={color} onChange={e => changeColor(e.target.value)} id="square" />
+        <input type="text" placeholder="Type new color..." className="border-1 mt-5 p-2" value={color} onChange={e => changeColor(e.target.value)} id="square" />
 
-        {color}: {isValidColor(color) ? (<p>Valid</p>) : (<p>Invalid</p>)}
-        {index + 1}
+        <div className="relative top-10 float-left">
+          Color: {color}
+        </div>
+
+        <div className="text-center mt-15">
+          {isValidColor(color) ? (<p>Valid</p>) : (<p>Invalid</p>)}
+          {index + 1}
+        </div>
+
         <div className="grid grid-cols-3 gap-20 mt-5">
           <button className="w-30 h-30 border-1" onClick={() => changeMyColor(prevColor[0])} style={{ backgroundColor: prevColor[0] }} />
           <button className="w-30 h-30 border-1" onClick={() => changeMyColor(prevColor[1])} style={{ backgroundColor: prevColor[1] }} />
